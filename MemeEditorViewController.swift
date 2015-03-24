@@ -40,11 +40,7 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
         
     }
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.topTextFieldOutlet.text = ""
         
-    }
-    
     @IBAction func cameraButton(sender: UIBarButtonItem) {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
