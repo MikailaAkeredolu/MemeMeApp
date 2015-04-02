@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    //add memes array data here
+    //add memes array data here - changed name for better understanding
     
     var appDelegateMemes = [MemeClass]()
     

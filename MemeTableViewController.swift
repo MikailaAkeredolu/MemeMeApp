@@ -48,7 +48,7 @@ class MemeTableViewController: UIViewController,UITableViewDataSource,UITableVie
     
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int{
         
- //return 5
+ //return 5 - this worked
         
         return self.memesObject.count
         
@@ -65,7 +65,7 @@ class MemeTableViewController: UIViewController,UITableViewDataSource,UITableVie
         
         var myMemes = self.memesObject[indexPath.row]
         
-       // println("test") and test commit
+       // println("test") and test commit - this works
         
         // Set the name and image
         cell.Top.text = myMemes.topTextField
@@ -81,13 +81,9 @@ class MemeTableViewController: UIViewController,UITableViewDataSource,UITableVie
     
     func tableView(tableView:UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
-        
+      //NOt yet implemented
         
     }
-
-    
-    
-    
     
     /*
     // MARK: - Navigation
