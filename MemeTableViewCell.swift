@@ -9,6 +9,16 @@
 import UIKit
 
 class MemeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var Top: UILabel!
+    
+    
+    @IBOutlet weak var Bottom: UILabel!
+    
+    
+    @IBOutlet weak var imageForTable: UIImageView!
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

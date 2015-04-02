@@ -8,20 +8,87 @@
 
 import UIKit
 
-class MemeTableViewController: UIViewController {
+class MemeTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
+ var memesObject:[MemeClass]!
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+  
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        memesObject = (UIApplication.sharedApplication().delegate as AppDelegate).appDelegateMemes
 
-        // Do any additional setup after loading the view.
+        self.tableView.reloadData()
+        
     }
+    
+    
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+      /* let object = UIApplication.sharedApplication().delegate
+        
+        let appDelegate = object as AppDelegate */
+        
+//        memesObject = (UIApplication.sharedApplication().delegate as AppDelegate).appDelegateMemes
+      
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //UITableView Data Sources
+    
+    func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int{
+        
+ //return 5
+        
+        return self.memesObject.count
+        
 
+        
+    }
+    
+   
+    func tableView(tableView:UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell{
+      
+        //set up custom cell
+        
+        var cell:MemeTableViewCell = tableView.dequeueReusableCellWithIdentifier("myTableViewCell") as MemeTableViewCell
+        
+        var myMemes = self.memesObject[indexPath.row]
+        
+       // println("test") and test commit
+        
+        // Set the name and image
+        cell.Top.text = myMemes.topTextField
+        cell.Bottom.text = myMemes.bottomTextField
+        cell.imageForTable.image = myMemes.memedImage
+        
+        
+        return cell
+        
+    }
+    
+    //UITableViewDelegate
+    
+    func tableView(tableView:UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+        
+        
+    }
+
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
