@@ -68,21 +68,15 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     func save(){
         //create the meme
         
-        var memeObject = MemeClass(textTop: self.topTextFieldOutlet!, textBottom: self.bottomTextFieldOutlet!, image: self.imageViewOutlet.image!, mImage: self.generateMemedImage())
+        var meme = MemeClass(textTop: self.topTextFieldOutlet!, textBottom: self.bottomTextFieldOutlet!, image: self.imageViewOutlet.image!, mImage: self.generateMemedImage())
        
-    //add it to memes array on the application delegate NOT SURE WHATS GOING ON
+        
+        (UIApplication.sharedApplication().delegate as AppDelegate).memes.append(meme)
 
-        let object = UIApplication.sharedApplication().delegate
-        
-        let appDelegate = object as AppDelegate
-        
-        appDelegate.appDelegateMemes.append(memeObject)
-        
-        
     }
     
     
-    func generateMemedImage()->UIImage{
+    func generateMemedImage() -> UIImage{
         
         //hide tool and nav bar
         

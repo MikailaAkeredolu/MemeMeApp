@@ -11,12 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+     var memes = [MemeClass]()
+    
     var window: UIWindow?
 
     //add memes array data here - changed name for better understanding
     
-    var appDelegateMemes = [MemeClass]()
+   
     
+    //let randomColorDelegate = RandomColorTextFieldDelegate()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

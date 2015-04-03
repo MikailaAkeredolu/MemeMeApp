@@ -9,34 +9,23 @@
 import UIKit
 
 class MemeTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-
- var memesObject:[MemeClass]!
-    
     
     @IBOutlet weak var tableView: UITableView!
   
+    var memes:[MemeClass]!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        memesObject = (UIApplication.sharedApplication().delegate as AppDelegate).appDelegateMemes
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        
+        memes = applicationDelegate.memes
+        
 
         self.tableView.reloadData()
         
     }
     
-    
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-      /* let object = UIApplication.sharedApplication().delegate
-        
-        let appDelegate = object as AppDelegate */
-        
-//        memesObject = (UIApplication.sharedApplication().delegate as AppDelegate).appDelegateMemes
-      
-    }
     
 
     override func didReceiveMemoryWarning() {
@@ -50,10 +39,8 @@ class MemeTableViewController: UIViewController,UITableViewDataSource,UITableVie
         
  //return 5 - this worked
         
-        return self.memesObject.count
-        
-
-        
+        return self.memes.count
+ 
     }
     
    
@@ -63,7 +50,7 @@ class MemeTableViewController: UIViewController,UITableViewDataSource,UITableVie
         
         var cell:MemeTableViewCell = tableView.dequeueReusableCellWithIdentifier("myTableViewCell") as MemeTableViewCell
         
-        var myMemes = self.memesObject[indexPath.row]
+        var myMemes = self.memes[indexPath.row]
         
        // println("test") and test commit - this works
         
@@ -84,6 +71,18 @@ class MemeTableViewController: UIViewController,UITableViewDataSource,UITableVie
       //NOt yet implemented
         
     }
+    
+    
+    /*
+    instntiate vc
+    var controller:MemeEditorViewController
+    controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as MemeEditorViewController
+    
+    
+    self.presentViewController(controller, animated: true, completion: nil)
+    
+    */
+    
     
     /*
     // MARK: - Navigation
